@@ -9,9 +9,8 @@ public class OpenChrome {
         //drive.get("https://google.com.vn");
         // navigate to what do you want?
         drive.navigate().to("https://google.com.vn");
-        drive.manage().window().fullscreen();// size of view port
-
-
+        //drive.manage().window().fullscreen();// size of view port
+        drive.manage().window().maximize();
         //drive.close();
         drive.quit();
 
