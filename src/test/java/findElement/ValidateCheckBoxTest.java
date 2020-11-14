@@ -6,28 +6,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.CheckboxPage;
 
 public class ValidateCheckBoxTest {
     @Test
     void validateCheckBoxTest() {
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://the-internet.herokuapp.com/checkboxes");
+        CheckboxPage checkboxpage = new CheckboxPage(driver);
+        checkboxpage.open();
 
-        WebElement checkbox1 = driver.findElement(By.xpath("//form[@id ='checkboxes']/input[1]"));
-        WebElement checkbox2 = driver.findElement(By.xpath("//form[@id ='checkboxes']/input[2]"));
 
-        check(checkbox1);
-        Assert.assertTrue(checkbox1.isSelected());
 
-        check(checkbox2);
-        Assert.assertTrue(checkbox2.isSelected());
+        checkboxpage.checkOn("1");
+        Assert.assertTrue(checkboxpage.getCheckbox("1").isSelected());
+        checkboxpage.checkOn("2");
+        Assert.assertTrue(checkboxpage.getCheckbox("2").isSelected());
 
         driver.quit();
     }
 
-    private void check(WebElement element) {
-        if(!element.isSelected()){
-            element.click();
-        }
-    }
 }

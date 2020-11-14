@@ -1,0 +1,16 @@
+<suite name="The internet page">
+    <test name ="run on chrome browser">
+        <classes>
+            <parameter name ="browserName" value ="chrome"></parameter>
+            <class name ="TestCase.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name ="run on firefox browser">
+        <parameter name ="browserName" value ="firefox"></parameter>
+        <classes>
+            <class name ="TestCase.LoginTest"/>
+        </classes>
+    </test>
+
+</suite>
